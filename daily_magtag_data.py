@@ -86,7 +86,7 @@ def is_subset_of_list(row):
 tasks_df['sub_tasks_complete'] = tasks_df.apply(is_subset_of_list, axis=1)
 
 # update keep to false if id is in results.task_id and tasks_df.sub_tasks_complete is true
-tasks_df.loc[(tasks_df['id']).isin(list_of_ids) & (tasks_df['sub_tasks']), 'keep'] = False
+tasks_df.loc[(tasks_df['id']).isin(list_of_ids) & (tasks_df['sub_tasks_complete']), 'keep'] = False
 
 # tasks_df.time_estimate.unique()
 estimate_bins = {'< 15': 0,
